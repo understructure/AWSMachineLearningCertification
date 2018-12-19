@@ -132,15 +132,34 @@ In this course we join some of Amazon's own Machine Learning Scientists for disc
         * One-hot encode categorical variables
         * Use stemming, remove stopwords, extract n-grams
         
-
 ### Image Classification: Vocabulary and Example
 
-
+* Labeling
+* Feature engineering - e.g., smaller standard deviation or range of pixel brightness might mean not much info in the image
+* Accuracy of model depends on model chosen as well as input features
+* The best model is the one that fits the business need best - not necessarily the one with the highest accuracy
+* Some things are just too hard, like realizing sarcasm
 
 ### Reinforcement Learning: Robot Programming Example
 
-
+* Consider a robot moving around a board and eating plants - some are good, some are poison
+* Learn a mapping of current agent's state to a desired action (policy)
+* Feature vector ~= vector representing current state
+* Prediction ~= next action
+* Action ~= reward
+* State = encoding of the agent and current (observable) environment
+* Action = move up, down, left, right, eat plant
+* Past data = where robot has traveled, what robot has eaten so far, corresponding rewards received
+* Future data = new parts of the grid, or new grids altogether
+* Maximize cumulative reward in the future
+* "Given this setting, reinforcement learning combines exploring the environment while attempting to maximize accumulated rewards to learn a policy for future use"
+* In reality, we might need to encode images of poisonous and non-poisonous plants and use those to feed a poisonous plant image classifier, and take its prediction as part of a state description
+* Reinforcement Learning Differences:
+    * No explicit presentation of input/output pairs
+    * Reward based
+    * Agent needs to gather useful experiences
+    * Evaluation of the system is often concurrent with learning
 
 ### Machine Learning in Action: The Pollexy Project
 
-
+* This video is an introduction to The Pollexy Project, the service combining Alexa, Amazon Polly and Amazon Lex. The Pollexy Project is a Raspberry Pi and mobile-based special needs verbal assistant that lets caretakers schedule audio task prompts and messages both on a recurring schedule and/or on-demand. In this video, we introduce you to the project and showcase a specific use for the project: assisting children with autism. 
