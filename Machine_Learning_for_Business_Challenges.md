@@ -77,23 +77,61 @@ In this course we join some of Amazon's own Machine Learning Scientists for disc
 
 ### When is Machine Learning a Good Solution?
 
-
+* When you need to automate a process or DSS where it's easier to learn from data than code rules
+    * Combining weak or unseen evidence - probability
+    * ASIN - Amazon Specific Item Number
+* When manual process isn't cost effective or doesn't scale
+    * Competitive tasks that require human expertise, but volume of work is too large
+    * Amazon has a long tail of products that are almost never purchased - might want to use ML to translate details page
+    * Quality of solution in relation to value of the problem
+* When you have ample data to learn from
+* When problem can be formalizable as an ML problem
+    * If you can't formalize it, you can't learn it
+    * e.g., reduce to well-known ML problem like regression or classification
+    * Grocery store floor placement isn't a good ML problem, at least as stated - is the goal to make the trip to the store as long as possible?  As short as possible?
 
 ### When is Machine Learning NOT a Good Solution?
 
-
+* When a traditional software solution would work nearly as well
+* For problems with no data or with no labels
+* Need to launch quickly - timelines are extremely variable - usually better to launch a simpler version faster
+* Where there's no tolerance for mistakes - takes often years to get to this point
 
 ### Machine Learning Application
 
-
+* Supervised learning - translates inputs to outputs, need ground truth labels
+    * Regression
+    * Classification
+* Unsupervised learning - no lablels, used to discover patterns
+    * Clustering
+    * Topic modeling
+* Reinforcement learning
 
 ### Machine Learning Business Problem: Gift Wrap Eligibility
 
-
+* Feature vector - properties you think are relevant to making a prediction
+* When is an ML solution a good one?   When...
+    * It's difficult to directly code a solution
+    * Difficult to scale a code-based solution
+    * We want personalized output
+    * Functions change over time
 
 ### Data, Data, Data
 
-
+* NNs are more possible now because of compute power and volume of data
+* "Design matrix" - table of features and labels, essentially
+* Text data is both high-dimensional (many different words) and sparse (only a very few words of the total possible are used in any given case)
+* Set data - group of items purchased / viewed together
+* ML Data Scope Questions
+    * How much data is sufficient for building successful ML models?
+    * How to deal with data quality issues?
+        * Missing value imputation
+        * Outlier detection
+    * Data preparation prior to model building
+        * Center numerical values with unit variance
+        * One-hot encode categorical variables
+        * Use stemming, remove stopwords, extract n-grams
+        
 
 ### Image Classification: Vocabulary and Example
 
