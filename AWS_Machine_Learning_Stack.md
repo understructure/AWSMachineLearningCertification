@@ -1,4 +1,8 @@
-AWS ML - ML basics
+# AWS ML - ML basics
+
+## AWS Machine Learning Stack
+
+https://www.aws.training/transcript/curriculumplayer?transcriptId=Af9SbtLa5EeVRGCTzixUMQ2
 
 * Application Services 
 	* Polly - 25 languages, 52 voices, custom lexicons, SSML tags, cache files created and play mutliple times
