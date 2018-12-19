@@ -49,7 +49,31 @@ In this course we join some of Amazon's own Machine Learning Scientists for disc
 
 ### How to Define and Scope a Machine Learning Problem
 
-
+* Requirements gathering 
+    * what's the problem you're trying to solve?
+    * What's the existing solution
+    * What are the pain points, and what's causing them?
+    * What is the problem's impact?
+    * How would the solution be used?
+    * What's the scope?
+    * How do you define success?
+* Inputs gathering
+    * Do we have sufficient data?
+    * Labeled examples?
+    * If not, how difficult is it to create/obtain data?
+    * What are our features?
+    * What are the most useful inputs?
+    * Where is the data?
+    * What's the data quality like?
+* Output definition
+    * What business metric defines success?
+    * What are the tradeoffs?
+    * Are there existing baselines?
+    * If not, what's the simplest thing we can use as a baseline?
+    * Any data validation set we need to use to make the case to others?
+    * How important is runtime and performance, SLA, etc.
+* What's the task type (regression, classification)?
+* What are the risks and assumptions?
 
 ### When is Machine Learning a Good Solution?
 
