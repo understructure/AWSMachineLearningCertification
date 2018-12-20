@@ -1,7 +1,7 @@
 
 # AWS ML Certification Notes
 
-These are my notes from studying videos from [AWS's free online training](aws.training) for the new Machine Learning Specialization (beta) exam.
+These are my notes from studying videos from [AWS's free online training](https://aws.training) for the new Machine Learning Specialization (beta) exam.
 
 Most of this isn't yet spellchecked, and some of it is in markdown files.  The goal is to spellcheck everything (duh) and get all the notes into Jupyter notebooks.
 
