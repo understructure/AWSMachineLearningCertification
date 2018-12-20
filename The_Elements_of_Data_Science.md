@@ -156,18 +156,95 @@ $ logit(p(y = 1 | x)) = z $
 
 ### Problem Formulation
 
-
-
-
+* Precisely define business problem
+* What's the business metric?
+* Is ML the appropriate approach?
+* What data is available?
+* What type of ML problem is it?
+    * Frequently multiple models is the answer
+* What are your goals?
 
 ### Data Collection
 
-
+* Data collection - acquiring training or test data
+* Motivation
+    * Initial datasets for training models and measuring success
+    * Adding data for tuning
+    * Replacements for flawed or outdated sets
+    * Data and model maintenance post production
+* Sources
+    * Logs
+    * Databases
+    * Web sites (crawling / scraping)
+    * Data providers (public / private)
 
 ### Data Collection: Sampling
 
+* Select subset of instances for training and testing
+* Instance = example = data point
+* Representativity - needs to be unbiased / representative of the population
+    * especially important for testing and measurement sets
+    * also important for training sets to get good generalization
+* Random sampling - so each data point has equal probability of being selected
+* Stratified sampling - apply random sampling to each subpopulation separately
+* Usually, sampling probability is the same for each stratum
+    * If not, weights can be used in metrics and/or directly in training
+* Seasonality - time of day, day of week, time of year (seasons), holidays, special events, etc.
+    * Stratified sampling across these can help minimize bias
+    * Visualization can help
+* Trends - patterns can shift over time, and new ones can emerge
+    * To detect, try comparing models trained over different time periods
+    * Visualization can help
+* Consider using validation data that was gathered after your training data was gathered
+* Leakage is specific to how data was prepared and created, or to whether it's available in training, testing and production
+* Leakage - using information during training or validation that's not available in production
+* Train / test bleed - inadvertent overlap of training and test data when sampling to create datasets
+    * Sample from fresh data
+    * Filter out already selected instances
+    * Partition source data along some dimension (but avoid bias)
+    * Be especially careful with time-series data and data with duplicate entries
 
 ### Data Collection: Labeling
+
+* Obtaining gold-standard answers for supervised learning
+* Motivation - often, lables aren't readily available in sampled data
+* Examples
+    * Search - results a customer wanted to receive
+    * Music categorization - genre
+    * Sentiment analysis
+    * Digitization - transcribing handwriting
+    * Object detection - localization of objects in images
+* Sometimes lables can be inferred (e.g., from click-through data)
+* Human labels can be preferable to minimize bias, capture subtleties, etc.
+* Labeling guidelines (instructions to labelers, critical to get right, minimize ambiguity)
+* Labeling tools
+    * Excel spreadsheets
+    * Mechanical Turk
+    * Custom-built tools
+* Questions
+    * Human intelligence tasks (HITs) should be:
+        * Simple
+        * Unambiguous
+* Poor design of tools or HITs can
+    * Impact labeler productivity and quality
+    * Introduce bias
+* Managing Labelers
+    * Motivation - bad labels lead to poor ML results
+    * Plurality - assign each HIT to multiple labelers to identify difficult or ambiguous cases, or problematic labelers (lazy, confused, bias, etc.)
+    * Gold Standard HITs - HITs with known labels mixed in to identify problematic labelers
+    * Labeler Incentives - compensation, rewards, voluntary, gamification
+    * Quality and productivity metrics - can help detect problems with labelers
+* Sampling and treatment assignment
+    * Random sampling + random assignment - ideal experiments - causal conclusion and can be generalized (rarely available in traditional analysis, but become available in online testing)
+    * Random sampling without random assignment - Typical survey or observation studies - cannot establish causation, but can find correlation and can be generalized (additional work needed to infer causation)
+    * Random assignment without random sampling - Most experiments - Causal conclusion for the sample only (more work is needed to generalize)
+    * No random sampling, no random assignment - BAD - badly-designed survey or pooled studies - can't establish causation, can't generalize to larger population (more work is needed to draw useful conclusions)
+* Random Assignment - can infer causation, otherwise, only correlation
+* Random Sampling - should generalize, can't generalize without random sampling
+
+
+
+
 
 
 ### Exploratory Data Analysis: Domain Knowledge
