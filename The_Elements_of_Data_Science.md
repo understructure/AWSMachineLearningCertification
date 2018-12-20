@@ -243,23 +243,63 @@ $ logit(p(y = 1 | x)) = z $
 * Random Sampling - should generalize, can't generalize without random sampling
 
 
-
-
-
-
 ### Exploratory Data Analysis: Domain Knowledge
 
-Typical ML workflow:
-(insert image here)
+Typical ML workflow (longer arrow = data augmentation, shorter arrow = feature augmentation)
 
+![Typical ML workflow](ds001.png)
+
+* Important to understand data as much as possible - this informs subsequent steps in the ML process
+* Domain Knowledge
+    * Understand how the domain works, important dynamics and relationships, constraints, how data is generated, etc.
+    * Better understanding of domain leads to better features, better debugging, better metrics, etc.
+* When domain is outside your realm
+    * Consult domain experts (AWS ML specialist SA's, AWS professional services, AWS ML Solutions Lab)
+    * Seek other resources (AWS Partner network)
 
 ### Exploratory Data Analysis: Data Schema
 
+* Convert / connect various data sources to S3, then send to SageMaker
+* Join data with Pandas `merge()` function, `how=inner`
 
 
 ### Exploratory Data Analysis: Data Statistics
 
+* Rows and columns
+* Univariate statistcs (mean, sd, variance, for numeric variables, and histograms, most/least frequent values, percentage, number of unique values for categorical)
+    * `df.column.value_counts()` or Seaborn's `distplot()`
+* Target Statistics
+    * Class distribution (`df.target.value_counts()` or `np.bincount(y)`)
+* Multivariate statistics - correlation, crosstabs ("contingency tables")
+* `df.info()` - shows datatype for each column
+* `df.describe()` - shows summary statistics for each column
+* Plots
 
+* Density plot
+
+`df['varname'].plot.kde()`
+`plt.show()`
+
+* Histogram
+
+`df['varname'].plot.hist()`
+`plt.show()`
+
+* Box Plot
+
+`df.boxplot(['varname'])`
+`plt.show()`
+
+* Scatterplot
+
+`df.plot.scatter(x='V1', y='V2')`
+`plt.show()`
+
+* Scatterplot Matrix - histogram on diagonal, pairwise scatterplot otherwise
+
+`pd.scatter_matrix(df[['V1', 'V2', 'V3']], figsize=(15,15))`
+
+https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)
 
 ### Exploratory Data Analysis: Correlations
 
