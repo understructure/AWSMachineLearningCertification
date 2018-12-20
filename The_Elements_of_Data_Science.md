@@ -370,18 +370,70 @@ https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)
     * MICE
     * etc.
 
-
-
 ### Feature Engineering
 
+* scikit-learn: `sklearn.feature_extraction`
+* often more art than science
+* rule of thumb - use intuition.  What information would a **human** use to predict this?
+* Try generating many features first, **then** apply dimensionality reduction if needed
+* Consider transformations of attributes - square a number, multiply two features together
+* Try not to overthink or include too much manual logic
 
 ### Feature Engineering: Filtering and Scaling
+
+* Images - remove channels from an image if color isn't important
+* Audio - remove frequencies from audio if power is less than a threshold
+* Many algorithms like kNN and gradient descent are sensitive to features being on different scales
+* Decision trees and random forests aren't usually  sensitive to features being on different scales
+* Scaling - want values between -1 and 1, or 0 and 1
+* Fit the scaler to training data only, then transform both train and validation data
+* Common choices for scaling in `sklearn`:
+    * Mean/variance  - z-score, subtract mean, divide by standard deviation - produces mean 0 and standard deviation 1 - `sklearn.preprocessing.StandardScaler`
+        * Advantages include many algorithms behave better with smaller values, and it keeps outlier information but reduces its impact
+    * MinMax scaling - minimum = 0, maximum = 1, then subtract min from each value and divide by max minus min - `sklearn.preprocessing.MinMaxScaler`
+        * Advantage: Robust to small standard deviations
+        * Difference b/t min and max is usually larger than standard deviation
+        * When SD is very small, mean/variance scaling isn't going to be robust, because we're dividing by a very small number
+    * Maxabs scaling - take maximum absolute value in dataset and divide everything by that
+        * Not centered, just scaled [scikit-learn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html)
+    * Robust scaling - look at a feature in training data set and find median, 25th quantile and 75th quantile.  Then subtract median and divide by difference b/t 75th and 25th quantile.  This makes the feature robust to outliers, because outliers have little effect in calculating medians and quantiles
+* Scaling is for one column, normalizing is for one row
+* Normalizer - rescales $ x_j $ to unit norm based on 
+    * L1 norm
+    * L2 norm
+    * Max norm
+* Normalizers used a lot in text analysis
+* `sklearn.preprocessing.Normalizer`
 
 
 ### Feature Engineering: Transformation
 
+* Sometimes a polynomial is a better fit than a linear feature
+* `sklearn.preprocessing.PolynomialFeatures`
+    * Raises things to a power (all powers up to a power) as well as the interaction (a * b) between features
+* Beward of overfitting if the degree is too high
+* Consider non-polynomial transforms as well, like:
+    * Log transforms
+    * Sigmoid transforms
+* Risk of extrapolation beyond the range of data when using polynomial transformations
+* Radial Basis Function - transform the data through a center, represented below by $ c $
+* $ f(x) = f(\vec{x - c}) $
+    * Widely used in SVM as a kernel and in Radial Basis Neural Networks (RBNNs)
+    * Gaussian RBF is the most common RBF used
 
 ### Feature Engineering: Text-Based Features
 
-
-
+* Bag-of-words model
+    * Represent document as vector of numbers, one for each word (tokenize, count and normalize)
+* NOTE
+    * Sparse matrix implementation is typically used, ignores relative position of words
+    * Can be extended to bag of n-grams of words or characters
+* Count vectorizer
+    * Per-word value is count (also called term frequency)
+        * NOTE: Includes lowercasing and tokenization on white space and punctuation
+        * scikit-learn: `sklearn.feature_extraction.text.CountVectorizer`
+* `TfidfVectorizer` - Term Frequency times Inverse Document Frequency
+* Per-word value is *downweighted* for terms common across documents (e.g., "the")
+* `sklearn.feature_extraction.text.TfidfVectorizer`
+* A more efficient way of mapping words and counting frequencies is by using `HashingVectorizer` - stateless mapper from text to term index
+* `sklearn.feature_extraction.text.HashingVectorizer`
