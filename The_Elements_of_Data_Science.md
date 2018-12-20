@@ -303,9 +303,85 @@ https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)
 
 ### Exploratory Data Analysis: Correlations
 
+* Pearson correlation - covariance of x and y divided by standard deviation of x * standard deviation of y
 
 ### Exploratory Data Analysis: Data Issues
 
+* Missing data
+* Noisy data
+* Might want to impute
+* Messy data, data on different scales, mixed data type (e.g., 20 and twenty)
+* Imbalanced data
+* Sample bias
+* Outliers
+* Highly correlated features - can lead to multicolinearity
+
+## Data Processing and Feature Engineering
+
+### Data Preprocessing:  Encoding Categorical Variables
+
+
+* Pandas supports a data type of "category" but still ML models need numeric inputs
+* Ordinal - keep in mind relative magnitude (e.g., S, M, L, XL)
+* Can use Pandas `map()` function to map a dict of text keys to numerical values - keys are values in the column
+* Can use `sklearn.preprocessing.LabelEncoder()` for labels ONLY with binary variables
+    * this is the WRONG solution when there is no relationship between categories with more than two categories (OK for binary data)
+
+### Data Preprocessing: Encoding Nominal Variables
+
+* Can use Pandas `get_dummies()` function - automatically assigns column names as well
+* One-hot encoding - sometimes have to use `reshape(-1,1)` with the `OneHotEncoder()` from sklearn
+
+`from sklearn.preprocessing import OneHotEncoder`
+
+* Encoding with many classes - define a hierarchy structure
+    * Example - for a column with ZIP code, use regions -> states -> city as the hierarchy and choose a specific level to encode the ZIP code column
+* Try to group levels by similarity to reduce overall number of groups
+
+### Data Preprocessing: Handling Missing Values
+
+* Most ML models can't handle missing values
+* Pandas - check how many missing values for each column: `df. isnull.sum()`
+* Pandas - check how many missing values for each row: `df. isnull.sum(axis=1)`
+* Pandas - can use `dropna()` to drop rows with null values
+* Pandas - can use `dropna(axis=1)` to drop columns with null values
+    * `df.dropna(how='all')`
+    * `df.dropna(thresh=4)`
+    * `df.dropna(subset=['Fruits'])`
+* Risks of losing data - losing too much data leads to overfitting, wider confidence intervals, etc.
+* Too much data dropped can lead to bias
+* Risk of dropping columns - may lose information in features (underfitting)
+* Before dropping or imputing missing values, ask:
+    * What were the mechanisms that caused the missing values?
+    * Are these missing values missing at random?
+    * Are there rows or columns missing that you are not aware of?
+* If we believe missing values are random, can do imputation
+    * Mean or median for numeric variables
+    * Most frequent for categoricals
+    * Or any other estimated value
+* `from sklearn.preprocessing import Imputer`
+* `imputer = Imputer(strategy='mean')`
+* then call `imputer.fit()` and `imputer.transform()` on an object (like an array)
+* Advanced Methods for Imputing Missing values
+    * MICE (multiple imputation by chained equations) - `sklearn.impute.MICEImputer` (v 0.20)
+* Python (not sklearn) `fancyimpute` package
+    * KNN impute
+    * Soft impute
+    * MICE
+    * etc.
+
+
+
+### Feature Engineering
+
+
+### Feature Engineering: Filtering and Scaling
+
+
+### Feature Engineering: Transformation
+
+
+### Feature Engineering: Text-Based Features
 
 
 
