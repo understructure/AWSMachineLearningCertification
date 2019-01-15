@@ -113,14 +113,14 @@ Main tasks:
 		* Select a model evaluation criterion
 	* Parameter tuning/testing
 		* Spark on EMR
-			* Spark Mllib - dataframe-based API for ML
+			* Spark MLlib - dataframe-based API for ML
 			* Use Jupyter/ iPython / Zeppelin notebooks or R Studio
 			* Scala, Python, Java, R, SQL supported
 			* Leverage spot instances for training jobs, run off-peak
 		* EC2
-			* Python - preinstalled GPU CUDA support for training, framworks include:
+			* Python - preinstalled GPU CUDA support for training, frameworks include:
 				* MXNet
-				* Tensorflow
+				* TensorFlow
 				* Caffe2
 				* Torch
 				* Keras
@@ -131,7 +131,7 @@ Main tasks:
 		
 ### Evaluation
 
-1. Evalute how model is performing relative to business goals
+1. Evaluate how model is performing relative to business goals
 2. Make final decision to deploy or not
 
 * Evaluation the model - (mostly) objective assessment of how model is performing based on assessment criteria you determined earlier
