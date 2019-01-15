@@ -6,66 +6,67 @@
 * Six phases:
 
 1. Business understanding
-	a. Is the problem appropriate for ML?
+	* Is the problem appropriate for ML?
 2. Data understanding (--> Business understanding)
-	a. Data collection
-	b. Data properties / EDA / visualization / standard stats
-	c. Quality 
+	* Data collection
+	* Data properties / EDA / visualization / standard stats
+	* Quality 
 3. Data preparation
-	a. Select dataset
-	b. Feature engineering
+	* Select dataset
+	* Feature engineering
 4. Modeling (--> data preparation)
-	a. Select & create model
-	b. Tune model (choose values for parameters)
+	* Select & create model
+	* Tune model (choose values for parameters)
 5. Evaluation (--> Business understanding)
-	a. Model evaluation
-	b. Business objective evaluation
-	c. Final decision
+	* Model evaluation
+	* Business objective evaluation
+	* Final decision
 6. Deployment 
-	a. Planning deployment
-	b. Maintenance and monitoring
-	c. Final report
-	d. Project review
+	* Planning deployment
+	* Maintenance and monitoring
+	* Final report
+	* Project review
 
 ### Business Understanding
 
 Main tasks: 
 
 1. Understanding business requirements
-	a. Form business question (specific and measurable)
-	b. Highlight project's critical features
+	* Form business question (specific and measurable)
+	* Highlight project's critical features
 2. Analyzing supporting information
-	a. List required resources and assumptions
-	b. Analyze associated risks
-	c. Plan for contingencies
-	d. Compare costs and benefits
+	* List required resources and assumptions
+	* Analyze associated risks
+	* Plan for contingencies
+	* Compare costs and benefits
 3. Converting to a data mining problem / ML objective
-	a. Review ML question
-	b. Create technical DM / ML objective
-	c. Define the criteria for successful outcome of the project
+	* Review ML question
+	* Create technical DM / ML objective
+	* Define the criteria for successful outcome of the project
 4. Preparing a preliminary project plan
-	a. Number and duration of stages
-	b. Dependencies
-	c. Risks
-	d. Goals
-	e. Evaluation methods
-	f. Tools and techniques
+	* Number and duration of stages
+	* Dependencies
+	* Risks
+	* Goals
+	* Evaluation methods
+	* Tools and techniques
+
 
 ### Data Understanding
 
 1. Data collection
-	a. Detail various sources and steps to extract data
-	b. Analyze data for additional requirements
-	c. Consider other data sources
+	* Detail various sources and steps to extract data
+	* Analyze data for additional requirements
+	* Consider other data sources
 2. Data properties
-	a. Describe the data, amount of data used, and metadata properties
-	b. Find key features and relationships in the data
-	c. Use tools and techniques to explore data properties
+	* Describe the data, amount of data used, and metadata properties
+	* Find key features and relationships in the data
+	* Use tools and techniques to explore data properties
 3. Data quality
-	a. Verifying attributes
-	b. Identify missing data
-	c. Reveal inconsistencies
-	d. Report solution
+	* Verifying attributes
+	* Identify missing data
+	* Reveal inconsistencies
+	* Report solution
 
 * AWS services
 	* AWS Athena - interactive query service
@@ -148,14 +149,14 @@ Main tasks:
 * DEMO: Launching Jupyter notebook on EC2 using AWS deep learning AMI (he used G-series for graphics) (--no-browser flag, he opened up a new "screen"?)
 
 
-## Deployment
+### Deployment
 
 1. Planning deployment - choose runtime, e.g., EC2, ECS, Lambda (no Sagemaker??)
-    a. Deployment - CodeDeploy, OpsWorks, Elastic Beanstalk
-    b. Infrastructure - CloudFormation, OpsWorks, Elastic Beanstalk
+    * Deployment - CodeDeploy, OpsWorks, Elastic Beanstalk
+    * Infrastructure - CloudFormation, OpsWorks, Elastic Beanstalk
 2. Maintenance and monitoring
-    a. Code Management - CodeCommit, CodePipeline, Elastic Beanstalk
-    b. Monitoring - CloudWatch, CloudTrail, Elastic Beanstalk
+    * Code Management - CodeCommit, CodePipeline, Elastic Beanstalk
+    * Monitoring - CloudWatch, CloudTrail, Elastic Beanstalk
 
 3. Final report
     * highlight processes used in the project
@@ -171,5 +172,4 @@ Main tasks:
         * Choosing the right ML solution
     * Generalize the whole process to make it useful for the next iteration
 
-DEMO - deploy MXNet to Lambda - see [this link](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html)
-
+[DEMO - deploy MXNet to Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html)
